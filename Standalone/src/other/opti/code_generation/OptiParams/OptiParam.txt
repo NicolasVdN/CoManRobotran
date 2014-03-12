@@ -1,0 +1,15 @@
+# This file contains the list of the parameters to be optimized
+# lines starting with # won't be read
+# lines starting with // will be included as comments in C files
+
+#----------------------------------------------------------------------------
+//***************************************************************************************************
+//			TEST OPTIMIZATION 
+//***************************************************************************************************
+//
+// simple test for the optimization
+NAME : test_opti	
+
+ACCESS : cvs
+SIZE : 1
+BOUNDS : [0.010000 : 0.02000]	
