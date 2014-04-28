@@ -8,6 +8,10 @@
 
 ## ---- FLAGS ----  ##
 
+# Yarp
+option(FLAG_YARP
+	"Robotran YARP Interface", OFF)
+
 # Optimization
 option (FLAG_OPTI 
         "Optimization" OFF)
@@ -96,6 +100,11 @@ endif (FLAG_OPTI)
 # CMake minimum version
 cmake_minimum_required(VERSION 2.8.7)
 
+# Build required robotran_yarp_plugin
+if (FLAG_YARP)
+	find_package(YARP REQUIRED)
+	add_definitions(${YARP_DEFINES})
+endif (FLAG_YARP)
 
 if (FLAG_COMPILER)
 	set( CMAKE_C_COMPILER gcc-4.4 )
