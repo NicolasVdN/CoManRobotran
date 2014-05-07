@@ -102,8 +102,18 @@ cmake_minimum_required(VERSION 2.8.7)
 
 # Build required robotran_yarp_plugin
 if (FLAG_YARP)
+#### Find YARP, require that YARP version is at least ICUB_REQYARP_VERSION
 	find_package(YARP REQUIRED)
+    message(STATUS " YARP is version: ${YARP_VERSION} tweak number ${YARP_VERSION_TWEAK}")    
 	add_definitions(${YARP_DEFINES})
+
+    # pick up yarp's cmake scripts
+    list(APPEND CMAKE_MODULE_PATH ${YARP_MODULE_PATH})
+    include(YarpInstallationHelpers)
+
+    # add yarp include directories
+    include_directories( ${YARP_INCLUDE_DIRS}) 
+    
 endif (FLAG_YARP)
 
 if (FLAG_COMPILER)
@@ -115,6 +125,7 @@ endif (FLAG_COMPILER)
 
 # project name
 project (STANDALONE)
+
 
 # message to display the project name
 message(STATUS "Processing ${PROJECT_NAME}")

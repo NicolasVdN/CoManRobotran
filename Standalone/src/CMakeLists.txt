@@ -80,6 +80,12 @@ if (FLAG_SIMBODY)
 	target_link_libraries (${Executable} ${SIMBODY_LIBRARIES})
 endif(FLAG_SIMBODY)
 
+# YARP
+if (FLAG_YARP)
+    #TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES} curl) 
+    TARGET_LINK_LIBRARIES(${Executable} ${YARP_LIBRARIES} ${ACE_LIBRARIES}) 
+endif (FLAG_YARP)
+
 # files compiled as C++ files
 if (FLAG_CXX)
 	set_source_files_properties(${SOURCE_FILES_CPP} PROPERTIES LANGUAGE CXX )
